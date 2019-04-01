@@ -47,10 +47,10 @@ def textured_mesh(mesh, per_vertex_signal=None, filename='visualize mesh'):
     if per_vertex_signal == None:
         per_vertex_signal = np.zeros(mesh.vertices.shape[0])
     x = mesh.vertices.transpose()[0]; y = mesh.vertices.transpose()[1]; z = mesh.vertices.transpose()[2];
-    xrange = max(x)-min(x); yrange = max(y)-min(y); zrange = max(z)-min(z)
+    ran = mesh.bounds[1,:] - mesh.bounds[0,:]
     data1 = plotly_trisurf(x, y, z, per_vertex_signal, mesh.faces, colormap=cm.RdBu,plot_edges=True)
     axis = dict(showbackground=True,backgroundcolor="rgb(230, 230,230)",gridcolor="rgb(255, 255, 255)",zerolinecolor="rgb(255, 255, 255)")
     layout = Layout(width=800, height=800,scene=Scene(xaxis=XAxis(axis),yaxis=YAxis(axis),zaxis=ZAxis(axis),
-                      aspectratio=dict(x=xrange,y=yrange,z=zrange)))
+                      aspectratio=dict(x=ran[0],y=ran[1],z=ran[2])))
     fig1 = Figure(data=data1, layout=layout)
     iplot(fig1, filename=filename)
