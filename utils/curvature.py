@@ -27,6 +27,7 @@ def get_second_fund_form(mesh, curvatures):
     nt = mesh.faces.shape[0] # number of triangles
     for p in range(nv):
         curvatures[p].second_fund_form = np.eye(3)
+        curvatures[p].second_fund_form[2,2] = 0
     
 def get_prin_curvatures(mesh, curvatures):
     '''
