@@ -29,11 +29,7 @@ def plotly_trisurf(x, y, z, colors, simplices, colormap=cm.RdBu, plot_edges=Fals
                      intensity=ncolors,
                      colorscale='Viridis',
                      i=I,j=J,k=K,name='',
-                     showscale=True,
-                     colorbar=ColorBar(tickmode='array', 
-                                       tickvals=[np.min(z), np.max(z)], 
-                                       ticktext=['{:.3f}'.format(np.min(colors)), 
-                                                 '{:.3f}'.format(np.max(colors))]))
+                     showscale=True)
     
     if plot_edges is False: # the triangle sides are not plotted
         return Data([triangles])

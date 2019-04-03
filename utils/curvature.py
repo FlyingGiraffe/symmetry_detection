@@ -7,8 +7,8 @@ class Curvature:
         self.second_fund_form = np.zeros((3, 3)) # second fundamental form
         self.prin_curvatures = np.zeros(2) # principle curvatures
         self.prin_dirs = np.zeros((3, 2)) # principle directions
-        self.norm_dir = np.zeros(3) # normal direction
         self.bary_area = 0 # barycentric area
+        self.valid = True
 
 def get_curvatures(mesh):
     curvatures = [Curvature() for p in range(mesh.vertices.shape[0])]
@@ -35,8 +35,8 @@ def get_second_fund_form(mesh, curvatures):
         beta = 2 * np.pi - mesh.face_adjacency_angles[h]
         if mesh.face_adjacency_convex[h] == False:
             beta = -beta
-        curvatures[hinges[1][h,0]].second_fund_form += LA.norm(e) * np.dot(e_bar, e_bar.transpose()) / 2
-        curvatures[hinges[1][h,1]].second_fund_form += LA.norm(e) * np.dot(e_bar, e_bar.transpose()) / 2
+        curvatures[hinges[1][h,0]].second_fund_form += beta * LA.norm(e) * (e_bar * e_bar[:,np.newaxis]) / 2
+        curvatures[hinges[1][h,1]].second_fund_form += beta * LA.norm(e) * (e_bar * e_bar[:,np.newaxis]) / 2
     for f in range(nt):
         curvatures[mesh.faces[f,0]].bary_area += mesh.area_faces[f] / 3
         curvatures[mesh.faces[f,1]].bary_area += mesh.area_faces[f] / 3
@@ -60,7 +60,23 @@ def get_prin_curvatures(mesh, curvatures):
     for p in range(nv):
         eigvals, eigvects = LA.eigh(curvatures[p].second_fund_form)
         zero_idx = np.argmin(np.absolute(eigvals))
-        curvatures[p].norm_dir = eigvects[:, zero_idx]
         nonzeros = np.arange(3)[np.arange(3) != zero_idx]
         curvatures[p].prin_curvatures = eigvals[nonzeros]
         curvatures[p].prin_dirs = eigvects[:, nonzeros]
+        
+        if curvatures[p].prin_curvatures[0] * curvatures[p].prin_curvatures[1] > 0 \
+            and abs(curvatures[p].prin_curvatures[0] / curvatures[p].prin_curvatures[1]) > 0.75:
+            curvatures[p].valid = False
+        
+def signature(mesh, curvatures, p):
+    '''
+    Compute the signature of a point in the signature space.
+    Input:
+    - mesh: a triangular mesh
+    - curvatures: an array of Curvature object storing per-vertex second fundamental form, of shape (nv,) 
+    - p: index of the vertex on the mesh, integer
+    Output:
+    - sig: signature of mesh.vertices[p], real number
+    '''
+    eps = 1e-6
+    return curvatures[p].prin_curvatures[0] / (curvatures[p].prin_curvatures[1] + eps)
