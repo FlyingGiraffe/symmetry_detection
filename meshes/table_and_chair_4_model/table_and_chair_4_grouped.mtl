@@ -1,0 +1,24 @@
+# Blender MTL File: 'None'
+# Material Count: 2
+
+newmtl texturez_fabric_1283_preview
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.607843 0.541176 0.458824
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd table_and_chair_4/texturez_fabric_1283_preview.jpg
+
+newmtl uu
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.650980 0.450980 0.231373
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd table_and_chair_4/uu.jpg

@@ -1,0 +1,56 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Spalted_timber_04_rev_01
+Ka 0.000000 0.000000 0.000000
+Kd 0.180392 0.141176 0.117647
+Ks 0.330000 0.330000 0.330000
+map_Kd table_and_chair_3/Spalted_timber_04_rev_01.jpg
+
+newmtl M_20435_20436_Black_Walnut_Lumber_Slab__2_
+Ka 0.000000 0.000000 0.000000
+Kd 0.823529 0.686275 0.607843
+Ks 0.330000 0.330000 0.330000
+map_Kd table_and_chair_3/M_20435_20436_Black_Walnut_Lumber_Slab__2_.jpg
+
+newmtl PDM_Metal_01
+Ka 0.000000 0.000000 0.000000
+Kd 0.172549 0.172549 0.164706
+Ks 0.330000 0.330000 0.330000
+map_Kd table_and_chair_3/PDM_Metal_01.jpg
+
+newmtl _Color_003_1
+Ka 0.000000 0.000000 0.000000
+Kd 0.666667 0.666667 0.666667
+Ks 0.330000 0.330000 0.330000
+
+newmtl Color_008
+Ka 0.000000 0.000000 0.000000
+Kd 0.117647 0.117647 0.117647
+Ks 0.330000 0.330000 0.330000
+
+newmtl PDM_Aluminium
+Ka 0.000000 0.000000 0.000000
+Kd 0.729412 0.729412 0.729412
+Ks 0.330000 0.330000 0.330000
+map_Kd table_and_chair_3/PDM_Aluminium.png
+
+newmtl M_2ed6f55cf20ae6586e3be0ab934de0b7
+Ka 0.000000 0.000000 0.000000
+Kd 0.549020 0.541176 0.494118
+Ks 0.330000 0.330000 0.330000
+map_Kd table_and_chair_3/M_2ed6f55cf20ae6586e3be0ab934de0b7.jpg
+
+newmtl M_1_wood_live
+Ka 0.000000 0.000000 0.000000
+Kd 0.584314 0.415686 0.298039
+Ks 0.330000 0.330000 0.330000
+map_Kd table_and_chair_3/M_1_wood_live.jpg
+
+newmtl PDM_Wood_10
+Ka 0.000000 0.000000 0.000000
+Kd 0.211765 0.156863 0.113725
+Ks 0.330000 0.330000 0.330000
+map_Kd table_and_chair_3/PDM_Wood_10.jpg
+

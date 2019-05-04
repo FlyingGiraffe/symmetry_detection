@@ -43,14 +43,26 @@ def plotly_trisurf(x, y, z, colors, simplices, colormap=cm.RdBu, plot_edges=Fals
         lines=Scatter3d(x=Xe,y=Ye,z=Ze,mode='lines',line=Line(color='rgb(50,50,50)', width=1.5))
         return Data([triangles, lines])
 
-def textured_mesh(mesh, per_vertex_signal=None, filename='visualize mesh'):
-    if per_vertex_signal == None:
+def textured_mesh(mesh, per_vertex_signal=None, samples=None, filename='visualize mesh'):
+    if per_vertex_signal is None:
         per_vertex_signal = np.zeros(mesh.vertices.shape[0])
     x = mesh.vertices.transpose()[0]; y = mesh.vertices.transpose()[1]; z = mesh.vertices.transpose()[2];
     ran = mesh.bounds[1,:] - mesh.bounds[0,:]
     data1 = plotly_trisurf(x, y, z, per_vertex_signal, mesh.faces, colormap=cm.RdBu,plot_edges=True)
+    if samples is not None:
+        X = mesh.vertices[samples]
+        ns = mesh.vertex_normals[samples]
+        X += ns * 0.001
+        data2 = Scatter3d(x=X[:,0], y=X[:,1], z=X[:,2],
+                    mode='markers',
+                    marker=dict(size=3,
+                        line=dict(color='rgba(217, 217, 217, 0.14)', width=0.5),
+                        opacity=1))
+        data1.append(data2)
     axis = dict(showbackground=True,backgroundcolor="rgb(230, 230,230)",gridcolor="rgb(255, 255, 255)",zerolinecolor="rgb(255, 255, 255)")
     layout = Layout(width=800, height=800,scene=Scene(xaxis=XAxis(axis),yaxis=YAxis(axis),zaxis=ZAxis(axis),
-                      aspectratio=dict(x=ran[0],y=ran[1],z=ran[2])))
+                      aspectratio=dict(x=1,y=1,z=1)),
+                   xaxis=dict(range=[mesh.bounds[0,0], mesh.bounds[1,0]]),
+                   yaxis=dict(range=[mesh.bounds[0,1], mesh.bounds[1,1]]))
     fig1 = Figure(data=data1, layout=layout)
     iplot(fig1, filename=filename)

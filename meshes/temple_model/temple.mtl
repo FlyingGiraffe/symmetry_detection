@@ -1,0 +1,50 @@
+# Blender MTL File: 'Basic Temple.blend'
+# Material Count: 4
+
+newmtl Material__25
+Ns 7.843137
+Ka 1.000000 1.000000 1.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.000000
+illum 2
+map_Kd textures/Temple_Floor.jpg
+map_Ka textures/Temple_Floor.jpg
+
+newmtl Material__26
+Ns 7.843137
+Ka 1.000000 1.000000 1.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.000000
+illum 2
+map_Kd textures/Temple_Roof.jpg
+map_Ka textures/Temple_Roof.jpg
+
+newmtl Material__27
+Ns 7.843137
+Ka 1.000000 1.000000 1.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.000000
+illum 2
+map_Kd textures/Temple_Piller.jpg
+map_Ka textures/Temple_Piller.jpg
+
+newmtl Material__28
+Ns 7.843137
+Ka 1.000000 1.000000 1.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.000000
+illum 2
+map_Kd textures/Temple_Piller_Floor.jpg
+map_Ka textures/Temple_Piller_Floor.jpg

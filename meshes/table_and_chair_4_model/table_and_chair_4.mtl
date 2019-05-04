@@ -1,0 +1,16 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl uu
+Ka 0.000000 0.000000 0.000000
+Kd 0.650980 0.450980 0.231373
+Ks 0.330000 0.330000 0.330000
+map_Kd table_and_chair_4/uu.jpg
+
+newmtl texturez_fabric_1283_preview
+Ka 0.000000 0.000000 0.000000
+Kd 0.607843 0.541176 0.458824
+Ks 0.330000 0.330000 0.330000
+map_Kd table_and_chair_4/texturez_fabric_1283_preview.jpg
+
